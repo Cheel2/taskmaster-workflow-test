@@ -1,0 +1,61 @@
+Folder PATH listing
+Volume serial number is 7C7C-EFA6
+C:.
+|   .gitignore
+|   arborescence.txt
+|   PROJECT-INDEX.md
+|   README.md
+|   WORKFLOW-GUIDE.md
+|   
++---.github
+|   \---workflows
+|           qwen-report-sync.yml
+|           
++---.qwen-config
+|       kimi-review-prompt.md
+|       output-report-template.md
+|       qwen-system-prompt.md
+|       
++---.qwen-memory
++---.qwen-reports
++---docs
+|   +---phase-1-requirements
+|   |       01-idea-refine.md
+|   |       02-interview-me.md
+|   |       03-spec-driven.md
+|   |       04-requirements-validation.md
+|   |       05-nfr-engineering.md
+|   |       
+|   +---phase-2-design
+|   |       01-planning-task-breakdown.md
+|   |       02-api-interface-design.md
+|   |       03-context-engineering.md
+|   |       04-architectural-patterns.md
+|   |       05-data-modeling.md
+|   |       06-scalability-engineering.md
+|   |       07-trade-off-analysis.md
+|   |       
+|   +---phase-3-implementation
+|   +---phase-4-verification
+|   +---phase-5-quality-assurance
+|   +---phase-6-deployment
+|   \---phase-7-evolution
++---scripts
+|       consolidate-reports.sh
+|       create-report.sh
+|       git-ritual.sh
+|       
++---skills
+|   \---phase 3
+|           class-design.md
+|           clean-tests.md
+|           code-smells.md
+|           doubt-driven-development.md
+|           driven-development.md
+|           error-handling.md
+|           frontend-ui-engineering.md
+|           incremental-implementation.md
+|           naming-conventions.md
+|           source-driven-development.md
+|           
+\---src

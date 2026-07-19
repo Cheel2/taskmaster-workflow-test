@@ -1,0 +1,41 @@
+name: Qwen Report Consolidation
+
+on:
+  push:
+    paths:
+      - '.qwen-reports/**'
+
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Consolidate all reports
+        run: |
+          mkdir -p docs/phase-5-quality-assurance
+          echo "# CONSOLIDATED REVIEW — All Qwen Outputs" > docs/phase-5-quality-assurance/consolidated-review.md
+          echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+          echo "**Date:** $(date +%Y-%m-%d_%H:%M:%S)" >> docs/phase-5-quality-assurance/consolidated-review.md
+          echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+          echo "**Total sessions:** $(ls -1 .qwen-reports/session-*.md 2>/dev/null | wc -l)" >> docs/phase-5-quality-assurance/consolidated-review.md
+          echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+          echo "---" >> docs/phase-5-quality-assurance/consolidated-review.md
+          echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+
+          for file in $(ls -1 .qwen-reports/session-*.md 2>/dev/null | sort); do
+            echo "## $(basename $file .md)" >> docs/phase-5-quality-assurance/consolidated-review.md
+            echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+            cat "$file" >> docs/phase-5-quality-assurance/consolidated-review.md
+            echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+            echo "---" >> docs/phase-5-quality-assurance/consolidated-review.md
+            echo "" >> docs/phase-5-quality-assurance/consolidated-review.md
+          done
+
+      - name: Commit consolidated review
+        run: |
+          git config user.name "Qwen Bot"
+          git config user.email "bot@qwen.ai"
+          git add docs/phase-5-quality-assurance/consolidated-review.md
+          git diff --cached --quiet || git commit -m "docs: consolidation auto des rapports Qwen $(date +%Y%m%d)"
+          git push
