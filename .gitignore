@@ -1,36 +1,43 @@
+```
+# TypeScript build output
+tsconfig.tsbuildinfo
+
 # Dependencies
 node_modules/
-.pnpm-store/
 
-# Build
-.next/
-out/
-dist/
-
-# Environment
+# Environment variables
 .env
 .env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
+*.env.*
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log
 
-# Qwen reports are versioned by default (for review traceability)
-# Uncomment below to ignore them (not recommended for workflow)
-# .qwen-reports/
+# Temporary files
+*.tmp
+*.swp
 
-# Qwen memory files are versioned (feedback patterns)
-# Uncomment below to ignore them
-# .qwen-memory/
+# IDE files
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/
+target/
+
+# Python cache (if Python project alongside TypeScript)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Coverage reports
+coverage/
+htmlcov/
+*.coverage
+
+# Local configuration
+.next/
+.nuxt/
+```
